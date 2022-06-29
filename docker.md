@@ -4,6 +4,9 @@
 
 Official docker [link](https://docs.docker.com/engine/reference/builder/#cmd) to dockerfile commands
 
+Useful [notes](https://mehlj.github.io/Dockerfile/#:~:text=As%20explained%20in%20another%20post,Docker%20image%20using%20docker%20build%20.) on dockerfile anatomy:
+
+
 
 ## Base image
 
