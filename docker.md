@@ -193,6 +193,23 @@ docker tag local-image:tagname new-repo:tagname
 docker push new-repo:tagname
 ```
 
+# Save and Run docker without remote repo
+1. First ssh to your server that has to docker image
+```bash
+sudo docker save -o /home/your_image.tar your_image_name
+# determine the size of your compressed tar file
+ls -lah /home/your_image.tar
+```
+2. Copy the file over to the host server using rsync or cp
+```bash
+rsync -avz /home/sammy/your_image.tar username@remote_server_ip_address:destination_directory
+```
+
+3. SSH to the new server and load the repo
+```bash
+sudo docker load -i your_image.tar
+sudo docker images
+```
 
 # Example:
 ## Dockerfile
