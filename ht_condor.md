@@ -25,3 +25,17 @@ log = log.txt
 
 queue 1
 ```
+
+## Canceling jobs
+
+```bash
+# condor status
+condor_status
+
+# list all jobs
+condor_q nobatch
+# remove id
+condor_rm id
+
+
+```
