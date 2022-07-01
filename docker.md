@@ -193,6 +193,11 @@ docker tag local-image:tagname new-repo:tagname
 docker push new-repo:tagname
 ```
 
+Debug as an external user `nobody`
+```bash
+docker run -e _CONDOR_SCRATCH_DIR=/tmp  --user nobody -it thomasmullen/scape:light_testv3 /bin/bash
+```
+
 # Save and Run docker without remote repo
 1. First ssh to your server that has to docker image
 ```bash

@@ -15,3 +15,13 @@ find -name \*_run\*
 find . -maxdepth 2 -mindepth 2 
 find . -mindepth 4 -type d
 ```
+
+```bash
+# view the file
+cat htc-docker-test 
+```
+
+```bash
+# view the file
+cat htc-docker-test 
+```

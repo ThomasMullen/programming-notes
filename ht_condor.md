@@ -26,6 +26,37 @@ log = log.txt
 queue 1
 ```
 
+
+## Example condor submit files
+Here you can queue many docker files but with a slight chang to the directory parameters.
+
+```bash
+universe = docker
+docker_image = docker.io/thomasmullen/scape:light_testv6
+executable = /application/run.sh
+arguments =  -pD $(fish_path) -m 3 4 -dZ 5 -c 1 3 -r 0.1 4 4 -theta 76.2 -uvS 0.01 -p 0 -n 1 -ray 1
+#executable = /usr/bin/python3
+#arguments =  /application/run.py -pD $(fish_path) -r 0.1 400 400
+
+#$ENV(_CONDOR_SCRATCH_DIR)
+
+request_cpus = 1
+request_memory = 4096
+request_gpus = 1
+
+output = $(fish_path)/output.txt
+error = $(fish_path)/error.txt
+log = $(fish_path)/log.txt
+
+queue fish_path from (
+    /nfs/tank/orger/users/thomas.mullen/data/SCAPE/20210601/20210531_6dpf_HUC_H2B_fish3_run1
+)
+
+```
+
+
+
+
 ## Canceling jobs
 
 ```bash
