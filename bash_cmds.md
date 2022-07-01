@@ -25,3 +25,8 @@ cat htc-docker-test
 # view the file
 cat htc-docker-test 
 ```
+
+link an alias for my_area compared with full dir path
+```bash
+ln -s my_area nfs/.../thomas
+```
