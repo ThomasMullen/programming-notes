@@ -30,3 +30,19 @@ link an alias for my_area compared with full dir path
 ```bash
 ln -s my_area nfs/.../thomas
 ```
+
+Tmux preventing a remote session from crashing when logging remotely
+```bash
+# ssh into machine
+# ...
+
+# create a session
+tmux new -s [test]
+
+# close window
+# ...
+
+# reopen and ssh back into window
+tmux attach -t [test]
+```
+
