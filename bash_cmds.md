@@ -57,7 +57,10 @@ Make a link into a qr code
 ```bash
 brew install qrencode
 qrencode --help
+# print internally in the  the terminal
 qrencode -t ANSI -o - "https://www.youtube.com/watch?v=9CxvtaGS4yY&list=LL&index=2"
 # qrencode -t ANSI -o - [link]
-
+# export png to file
+qrencode -o test.png "https://www.youtube.com/watch?v=9CxvtaGS4yY&list=LL&index=2"
+# qrencode -o [filename] "https://www.youtube.com/watch?v=9CxvtaGS4yY&list=LL&index=2"
 ```
