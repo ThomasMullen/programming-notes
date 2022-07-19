@@ -45,4 +45,19 @@ tmux new -s [test]
 # reopen and ssh back into window
 tmux attach -t [test]
 ```
+Adding venv to jupyter notebook
+```bash
+pip install --user ipykernel
+pip install jupyter
+ipython kernel install --user --name=fimpy_env
 
+```
+
+Make a link into a qr code
+```bash
+brew install qrencode
+qrencode --help
+qrencode -t ANSI -o - "https://www.youtube.com/watch?v=9CxvtaGS4yY&list=LL&index=2"
+# qrencode -t ANSI -o - [link]
+
+```
