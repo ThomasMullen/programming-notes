@@ -16,7 +16,7 @@ This will show the steps in order to run a zebrafish protocol using the z-tracke
 5. Click calculate the background, then subtract the background from the fish by clicking update background.
 6.  Make sure the background has correctly subtracted, by ticking `Subtract Background` box and `Tail Tracking` then selecting the `Subtracted Image` option on the far right of the panel. If subtracted correctly return to the `raw data` view, otherwise recalculate the background and update.![fish camera](behvaioural_set_up_figs/panel2.png)
 7.  Fill in the meta data about the experiment. ![start camera](/Users/thomasmullen/Documents/behvaioural set-up figs/panel2.png)
-8.  Open Stimuli server (this is to pair the shader with the project screen).![stim server](behvaioural_set_up_figs/STIMSERVER.png)
+8.  Open Stimuli server (this is to pair the shader with the project screen).![stim server](behvaioural_set_up_figs/STIMSERVER.png)![stim server](behvaioural_set_up_figs/load_stim_shader.png)
 9.  Open up the `Stimuli Server Controller`. You should load the shader protocol, this should be in the directory `C:\Users\orger\Desktop\Adrien\shader_and_stimuli_protocol\Protocol\Protocol_CatchAllBouts.txt`.
 10. Then Open sublime and look for a file with a command `move 505 143 403 1` (the number will be different for each set-up). Enter this command into the stimuli controller panel ![stim server](behvaioural_set_up_figs/OpenStimController.png)
 

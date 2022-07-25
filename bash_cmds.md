@@ -77,3 +77,8 @@ Mp4 video from pngs
 ```bash
 ffmpeg -framerate 1/2 -start_number 260 -i img%06d.png -c:v libx264 -r 30 out.mp4
 ```
+
+convert markdown to html using pandoc
+```bash
+pandoc sample_readme.md -t html -o sample_readme.html
+```
