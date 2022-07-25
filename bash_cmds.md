@@ -64,3 +64,16 @@ qrencode -t ANSI -o - "https://www.youtube.com/watch?v=9CxvtaGS4yY&list=LL&index
 qrencode -o test.png "https://www.youtube.com/watch?v=9CxvtaGS4yY&list=LL&index=2"
 # qrencode -o [filename] "https://www.youtube.com/watch?v=9CxvtaGS4yY&list=LL&index=2"
 ```
+
+Unmount a volume via linux
+```bash
+# find all mounted volumes
+df -h
+# select specific volume
+sudo umount /media/tom/TomOrger2
+```
+
+Mp4 video from pngs
+```bash
+ffmpeg -framerate 1/2 -start_number 260 -i img%06d.png -c:v libx264 -r 30 out.mp4
+```
