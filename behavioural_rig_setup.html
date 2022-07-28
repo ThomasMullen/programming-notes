@@ -2,66 +2,119 @@
 <p>This will show the steps in order to run a zebrafish protocol using
 the z-tracket pipeline.</p>
 <ol type="1">
-<li>Check that the project, fan, arduino and computer are plugged
-in.</li>
-<li>Switch on the projector and turn on the fan dial</li>
-<li>Open the application <code>MC Control Tools</code> and double click
-Port 0</li>
+<li><p>Plan and save you protocol
+<a href="##Before-running-experiments">click here for
+details/example</a> <a
+href="##Before-running-experiments">here</a>.</p></li>
+<li><p>Fill up the arena with E3 solution using a pipette with a filter
+attached to the end <a href="##Arena-preparation">click here for
+details</a>.</p></li>
+<li><p>Check that the project, fan, arduino and computer are plugged
+in.</p></li>
+<li><p>Switch on the projector and turn on the fan dial.</p></li>
+<li><p>Open the application <code>MC Control Tools</code> and double
+click Port 0</p></li>
 </ol>
 <p><img src="behvaioural_set_up_figs/Camera1.png" alt="camera setup app" width="400"/></p>
-<ol start="4" type="1">
+<ol start="6" type="1">
 <li>Go to the Misc tab then load profile <code>user profile 0</code>. To
 see if you have maximised the camera frame rate go to the shutter tab
 and see that the 700 fps is selected.</li>
 </ol>
 <p><img src="behvaioural_set_up_figs/Camera2.png" alt="camera setup fps" width="400"/></p>
-<ol start="5" type="1">
+<ol start="7" type="1">
 <li><p>Open up the behavioural tracking software
 e.g. <code>C:\Users\orger\Desktop\Tom\Adriens_pipeline\z_tracker\Tracker</code>
 double click <code>FishTracker.sln</code>.</p></li>
-<li><p>Fill up the arena with E3 solution using a pipette with a filter
-attached to the end.</p>
-<ol type="1">
-<li>Making E3 solution 16.7ml of 60x E3 solution (normally found top
-shelf above sink in behavioural room) followed by 1L water.</li>
-</ol></li>
+<li><p>Open Stimuli server (this is to pair the shader with the project
+screen).</p></li>
+</ol>
+<p><img src="behvaioural_set_up_figs/STIMSERVER.png" alt="stim server" width="400"/></p>
+<p><img src="behvaioural_set_up_figs/load_stim_shader.png" alt="stim server" width="400"/></p>
+<ol start="9" type="1">
+<li><p>Open up the <code>Stimuli Server Controller</code>. You should
+load the shader protocol, this should be in the directory
+<code>C:\Users\orger\Desktop\Adrien\shader_and_stimuli_protocol\Protocol\Protocol_CatchAllBouts.txt</code>.</p></li>
+<li><p>Open Sublime app and look for a file with a command
+<code>move 505 143 403 1</code> (the number might be different for each
+set-up). Enter this command into the stimuli controller panel</p></li>
+</ol>
+<p><img src="behvaioural_set_up_figs/OpenStimController.png" alt="stim server" width="400"/></p>
+<ol start="11" type="1">
+<li>To pair your stimulus sequence protocol navigate through
+<code>Form1.cs</code> and map the filepath of you stimulus sequence to
+the <code>protocol</code> variable, and the Arduino port. below is an
+example:</li>
+</ol>
+<pre><code>protocol = new ProtocolCS.CatchAllBouts(Path_ProtocolLog, calibration_info, 3, desktop_path + &quot;\\StimuliSequence_CatchAllBouts.txt&quot;);</code></pre>
+<p><img src="behvaioural_set_up_figs/Form1_selecting_stim.png" alt="stimulus sequence pairing" width="400"/></p>
+<blockquote>
+<p>Note: for a different arduino protocol, e.g. optovin UV flash, <a
+href="##Other-Arduino-Protocol">click here for details</a></p>
+</blockquote>
+<ol start="12" type="1">
 <li><p>Start the <code>.sln</code></p></li>
 <li><p>Click start on the panel to switch on the camera.</p></li>
 </ol>
 <p><img src="behvaioural_set_up_figs/panel1.png" alt="start camera" width="400"/></p>
-<ol start="9" type="1">
-<li>Click calculate the background, then subtract the background from
-the fish by clicking update background.</li>
-<li>Make sure the background has correctly subtracted, by ticking
-<code>Subtract Background</code> box and <code>Tail Tracking</code> then
-selecting the <code>Subtracted Image</code> option on the far right of
-the panel. If subtracted correctly return to the <code>raw data</code>
-view, otherwise recalculate the background and update.</li>
+<ol start="14" type="1">
+<li><p>Click <code>Calculate Background</code> to calculate the
+background. Wait for a few seconds until no longer “Acquiring” and says
+“bg active”. Then tick <code>Update Background</code> to subtract the
+background from the fish.</p></li>
+<li><p>Tick <code>Subtract Background</code> and
+<code>Tail Tracking</code>.</p></li>
+<li><p>To make sure background is correctly subtracted, select the
+<code>Subtracted Image</code> option on the far right of the panel and
+verify on the screen. If subtracted correctly return to the
+<code>raw data</code> view, otherwise re-calculate the background and
+update.</p></li>
 </ol>
 <p><img src="behvaioural_set_up_figs/panel2.png" alt="fish camera" width="400"/></p>
-<ol start="11" type="1">
-<li>Fill in the meta data about the experiment.</li>
-<li>Open Stimuli server (this is to pair the shader with the project
-screen).</li>
+<blockquote>
+<p>Note: for noticably large/small larvae you may need to adjust the
+separation of the tail segments. To do this adjust the
+<code>Larva Size</code> variable. The last segment should remain on the
+tip of the tail even when turning. Zooming in can help with this.</p>
+</blockquote>
+<ol start="17" type="1">
+<li><p>Fill in the meta data about the experiment. For example:
+“Strain/Species”, “Age”, “Tank”.</p></li>
+<li><p>Click <code>Save Data</code>. Create a folder for your set of
+experiments and in there have a specific folder for each fish. &gt;Note:
+Each folder name will have a timestamp concatenated to your experiment
+name.</p></li>
+<li><p>The experiment would have start. Cover the opening of the
+behaviour arena. And you can hover over the <code>stimuli server</code>
+application on the toolbar to see the type of shader project (Don’t
+hover over the shader as that will affect the projection.)</p></li>
+<li><p>When the experiment has ended click <code>Stop Saving Data</code>
+then press the red stop on the C# code.</p></li>
 </ol>
-<p><img src="behvaioural_set_up_figs/STIMSERVER.png" alt="stim server" width="400"/></p>
-<p><img src="behvaioural_set_up_figs/load_stim_shader.png" alt="stim server" width="400"/></p>
-<ol start="13" type="1">
-<li><p>Open up the <code>Stimuli Server Controller</code>. You should
-load the shader protocol, this should be in the directory
-<code>C:\Users\orger\Desktop\Adrien\shader_and_stimuli_protocol\Protocol\Protocol_CatchAllBouts.txt</code>.</p></li>
-<li><p>Then Open sublime and look for a file with a command
-<code>move 505 143 403 1</code> (the number will be different for each
-set-up). Enter this command into the stimuli controller panel</p></li>
+<h2 id="software-summary">Software-Summary</h2>
+<p>There are two main files: <code>Form1.cs</code> which runs the
+applicaiton. The other is <code>CatchAllBoutsProtocol.cs</code> which is
+a protocol class that is inherited from a parent class
+<code>ClosedLoopAndArduinoProtocol</code>. The CatchAllBoutsProtocol
+class contains a rich variety of stimuli e.g. OMR (linear/rotaitonal),
+Uniform light, chasing dot, looming, acoustic. For a more tailored
+protocol you can define a new protocol and inherit from the
+<code>CatchAllBouts:ClosedLoopAndArduinoProtocol</code> class.</p>
+<div id="Before-running-experiments">
+
+</div>
+<h2 id="before-running-experiments">Before-running-experiments</h2>
+<ol type="1">
+<li>Plan protocol e.g. habituation period, stimuli used, inter-stimulus
+intervals, repetitions, number of fish, duration of experiment.</li>
+<li>Write up stimulus sequence and <strong>save to the
+desktop</strong>.</li>
+<li>Make a copy of the tracker software and save in your personal
+directory.</li>
 </ol>
-<p><img src="behvaioural_set_up_figs/OpenStimController.png" alt="stim server" width="400"/></p>
-<p>There are two main files <code>Form1.cs</code> and
-<code>CatchAllBoutsProtocol.cs</code></p>
-<p>To map your stimulus protocol with the behavioural code you need to
-open the <code>Form1.cs</code> and provide the name of your stimulus
-sequence filename (note this must be saved in the desktop).</p>
-<p><img src="behvaioural_set_up_figs/Form1_selecting_stim.png" alt="stimulus sequence pairing" width="400"/></p>
-<p>An example stimulus sequence would be:</p>
+<blockquote>
+<p>Example stimulus sequence for CatchAllBouts protocol</p>
+</blockquote>
 <pre><code>UniformLight    UniformLight_Color  ForwardOMR  ForwardOMR_Speed    RotationOMR RotationOMR_Speed   RotationOMR_Direction   ApproachingDot  ApproachingDot_Direction    LoomingDot  LoomingDot_Direction    Beep    Beep_Frequency  Beep_Duration   Time2Wait
 1   1   0   0   0   0   0   0   0   0   0   0   0   0   6000
 0   0   0   0   0   0   0   1   88  0   0   0   0   0   4000
@@ -72,10 +125,30 @@ sequence filename (note this must be saved in the desktop).</p>
 1   1   0   0   0   0   0   0   0   0   0   0   0   0   10000
 0   0   0   0   0   0   0   1   90  0   0   0   0   0   14000
 1   1   0   0   0   0   0   0   0   0   0   0   0   0   10000</code></pre>
+<h2 id="arena-preparation">Arena-preparation</h2>
+<ol type="1">
+<li>Making E3 solution 16.7ml of 60x E3 solution (normally found top
+shelf above sink in behavioural room) followed by 1L water.</li>
+<li>To fill the arena with E3, cut off the end of a pipette and attach
+it to a filter. Place the filter a 10 ml syringe.
+<img src="behvaioural_set_up_figs/E3_syringe.png" alt="camera setup fps" width="400"/></li>
+</ol>
+<h2 id="other-arduino-protocol">Other-Arduino-Protocol</h2>
 <p>For the case where you want to use a UV flash rather than the beep
-stimuli. Open <code>CatchAllBoutsProtocol.cs</code> and comment out
-<code>Send($"{trial.Beep_Frequency},{trial.Beep_Duration}");</code> and
-instead enter
-<code>Send($"STIM 2 0 {trial.Beep_Duration} {trial.Beep_Frequency} 1 1");</code>.
-This will be the alternative command sent to the arduino.</p>
-<p><img src="behvaioural_set_up_figs/UVFlashCode.png" alt="camera setup fps" width="400"/></p>
+stimuli. Open <code>CatchAllBoutsProtocol.cs</code> find the lines</p>
+<pre><code>Send($&quot;{trial.Beep_Frequency},{trial.Beep_Duration}&quot;);
+Log($&quot;Beep 1 Frequency {trial.Beep_Frequency} Duration {trial.Beep_Duration} PreyCapture 0&quot;);</code></pre>
+<p>comment this out and write the command you want the Arduino Serial to
+read e.g.</p>
+<pre><code>Send($&quot;\nSTIM 2 0 {trial.Beep_Duration} {trial.Beep_Frequency} 1 1\n&quot;);
+Log($&quot;Flash 1 Power {trial.Beep_Frequency} Duration {trial.Beep_Duration} PreyCapture 0&quot;);</code></pre>
+<p>This will be the alternative command sent to the arduino.
+<img src="behvaioural_set_up_figs/UVFlashCode.png" alt="camera setup fps"  width="400"/></p>
+<blockquote>
+<p>Note: you need to specify which COM port the Arduino is connected to
+if using a different Arduino. This is when constructing the
+<code>ProtocolCS.CatchAllBouts</code> protcol in the
+<code>Form1.cs</code> script. e.g. if the arduino is connected to
+COM4</p>
+</blockquote>
+<pre><code>protocol = new ProtocolCS.CatchAllBouts(Path_ProtocolLog, calibration_info, 4, desktop_path + &quot;\\StimuliSequence_CatchAllBouts_UV.txt&quot;);</code></pre>
