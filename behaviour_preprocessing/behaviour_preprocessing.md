@@ -41,5 +41,14 @@ git clone git@bitbucket.org:fchampalimaud/behaviourtoolbox.git
 9.  Run the first section
 ![folders](figs/sect1_folders.png)
 ![folders](figs/sect1.png)
+10. Run the camlog section
+11. Run the bout log section
+>Note: if it crashes due to diensions, check if there is an error when joining matrix of failed start and end bouts
+![folders](figs/error.png)
+12. Before running the stimlog section, open the stimuli player application. Note information to install this is on the wiki
+![folders](figs/stim_player.png)
+13. Run the stim log section
+![folders](figs/stim_sect.png)
+
 
 
