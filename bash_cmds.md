@@ -82,3 +82,18 @@ convert markdown to html using pandoc
 ```bash
 pandoc sample_readme.md -t html -o sample_readme.html
 ```
+
+Make a python venv and push to jupyter
+```bash
+# make python venv
+python -m venv ~/.pyenv/test-env
+# activate virtual env
+.\test-env\Scripts\activate
+# install packages
+pip install numpy jax matplotlib scipy
+# create ipykernel for jupyter
+python -m ipykernel install --user --name=<my_env_name>
+# see if it is listed in jupyter notebook
+jupyter kernelspec list
+
+```
